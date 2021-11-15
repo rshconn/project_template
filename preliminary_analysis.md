@@ -1,13 +1,10 @@
-# Project Title
+# California Fire Detection
 
 ### Group Members
-- 
-- 
+- Farah Sultana
+- Nishanth Prajith
 
 ### Repository Structure
-List each file and what it's purpose it. Make sure you indicate where your data cleaning code and data dictionary are! 
-
-For example:
 - `data`
   - `raw_twitter.csv`: Raw data from the Twitter API
   - `raw_census.csv`: Raw data from the Census API
