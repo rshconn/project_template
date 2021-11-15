@@ -6,15 +6,15 @@
 
 ### Repository Structure
 - `data`
-  - `raw_twitter.csv`: Raw data from the Twitter API
-  - `raw_census.csv`: Raw data from the Census API
-  - `cleaned.csv`: The cleaned and combined dataset for modeling. 
-  - `data_dictionary.csv`: The data dictionary for cleaned. 
+  - `California_Fire_Incidents.csv`: Raw data from the kaggle for all fires in california from 2013 - 2019
+  - `California_Fire_Cleaned.csv`: Cleaned 'California_Fire_Cleaned.csv`
+  - `weather_data.csv`: Raw data weather data from the Visual Crossing API
+  - `cleaned.csv`: The cleaned and combined dataset for modeling
 - `code`
-  - `etl_twitter.py`: Cleans `raw_twitter.csv`
-  - `etl_census`: Cleans `raw_census.csv`
+  - `etl_california_fire.py`: Cleans `raw_twitter.csv`
+  - `etl_weather.py`: Cleans `weather_data.csv`
   - `exploratory_data_analysis.ipynb`: Includes descriptive statistics and charts. 
-  - `build_model.py`: Builds Logistic Regression model. 
+  - `build_model.ipynb`: Builds Logistic Regression model. 
 
 ### Exploratory Analysis
 Describe what work you have done so far and include the code. 
