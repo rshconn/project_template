@@ -9,11 +9,11 @@
   - `California_Fire_Incidents.csv`: Raw data from the kaggle for all fires in california from 2013 - 2019
   - `California_Fire_Cleaned.csv`: Cleaned 'California_Fire_Cleaned.csv`
   - `weather_data.csv`: Raw data weather data from the World Weather Online API
-  - 'cleaned.csv' : Combined dataset for modeling
+  - `cleaned.csv` : Combined dataset for modeling
 - `code`
   - `etl_california_fire.py`: Cleans `California_Fire_Incidents.csv`
   - `etl_weather.py`: Cleans `weather_data.csv`
-  - 'cleaned.py' : Combines the two datasets
+  - `cleaned.py` : Combines the two datasets
   - `exploratory_data_analysis.ipynb`: Includes descriptive statistics and charts. 
 
 ### Exploratory Analysis
