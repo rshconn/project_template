@@ -11,7 +11,7 @@ import pandas as pd
 import requests
 import datetime
 
-dataset = pd.read_csv("California_Fire_Cleaned.csv")
+dataset = pd.read_csv("../data/California_Fire_Cleaned.csv")
 
 len(dataset['Counties'])
 
@@ -81,4 +81,4 @@ for j in range(193, len(new)):
 new = new.loc[new['Temp Day One'] != 0.0]
 new = new.reset_index(drop=True) # reset the index
 
-new.to_csv("weather_data.csv")
+new.to_csv("../data/weather_data.csv")
