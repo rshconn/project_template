@@ -23,8 +23,7 @@ Describe what work you have done so far and include the code.
 One of the biggest challenges we faced so far was getting the weather information. Many weather API's did not have historical weather data information we were looking to use in our model. It was very difficult to find a reliable yet free API that will give us the information we required. But luckily World Weather Online API did manage to work out in the end. Another challenge we encountered was definitely with the jupyter notebook as we were trying to plot certain graphs on state maps which did not work out as planned, as google colab for some reason did detect the necessary libraries even though they were installed. But after some heavy debugging it did manage to work and resolve itself.
 
 ### Future Work
-Describe what work you are planning to complete for the final analysis.
-
+We are looking to explore more using the data and try differnt classification models to test which model is best. One of the things we will be looking to do is add data of time and places where there did not occur any fires so as to make the dataset more realistc. This should prevent the model from overfitting and help the model to be more accurate.
 
 ### Contributions
 We both worked on the dataset cleaning and exploratory analysis. Nishanth mainly worked on data cleaning/fetching and Farah worked on some cleaing as well as the exploratory data analysis notebook.
