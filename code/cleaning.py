@@ -33,5 +33,16 @@ merged = merged.drop(drop_columns, axis = 1)
 
 merged.head(5)
 
+merged['Fire'] = True
+
 merged.to_csv('cleaned.csv')
+
+df = pd.DataFrame(temp, index = [0])
+for i in range(0, 5):
+  temp = {}
+  temp['Counties'] = merged['Counties'][i]
+  temp['Latitude'] = merged['Latitude'][i]
+  temp['Longitude'] = merged['Longitude'][i]
+  df = pd.DataFrame(temp, index = [0])
+  # merged.append(df)
 
