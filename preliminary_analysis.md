@@ -13,7 +13,7 @@
 - `code`
   - `etl_california_fire.py`: Cleans `California_Fire_Incidents.csv`
   - `etl_weather.py`: Cleans `weather_data.csv`
-  - `cleaned.py` : Combines the two datasets
+  - `cleaning.py` : Combines the two datasets
   - `exploratory_data_analysis.ipynb`: Includes descriptive statistics and charts. 
 
 ### Exploratory Analysis
