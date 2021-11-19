@@ -8,10 +8,12 @@ Original file is located at
 """
 
 import pandas as pd
+import requests
+import datetime
 
-fires = pd.read_csv("data/California_Fire_Cleaned.csv", index_col = 0)
+fires = pd.read_csv("../data/California_Fire_Cleaned.csv", index_col = 0)
 
-weather = pd.read_csv("data/weather_data.csv", index_col = 0)
+weather = pd.read_csv("../data/weather_data.csv", index_col = 0)
 
 fires.head(5)
 
@@ -35,14 +37,81 @@ merged.head(5)
 
 merged['Fire'] = True
 
-merged.to_csv('cleaned.csv')
+def randomDate(i):
+  x = 365
+  start = pd.to_datetime(merged['Started'][i])
+  end = pd.to_datetime(merged['Started'][i])
+  while (True):
+    days = datetime.timedelta(x)
+    daysTwo = datetime.timedelta(4)
+    a = pd.to_datetime(merged['Started'][i])
+    start = a - days
+    end = start + daysTwo
+    x += 30
 
-df = pd.DataFrame(temp, index = [0])
-for i in range(0, 5):
+    b = len(merged[(pd.to_datetime(merged['Started']) > a) & (merged['Counties'] == merged['Counties'][i]) & (pd.to_datetime(merged['Started']) < end)])
+    
+    if (b == 0):
+      break
+  return [start, end]
+
+def storeData(a):
+  columnName_one = ['Temp Day', 'MaxTemp Day', 'MinTemp Day', "Humidity Day"]
+  columnName_two = ["One", "Two", "Three", "Four", "Five"]
+
+  dataName = ["avgtempF", "maxtempF", "mintempF"]
+
+  for i in range(0, 5):
+    for k in range(0, 3):
+      v = columnName_one[k] + " " + columnName_two[i]
+      u = dataName[k]
+      temp[v] = a[i][u]
+    
+    avg = 0.0
+    b = a[i]['hourly']
+    for g in range(0, 8):
+      avg += float(b[g]['humidity'])
+    avg = float(avg / 8)
+    v = "Humidity Day " + columnName_two[i]
+    temp[v] = avg
+
+def getweather(temp, i, start, end):
+  apiKEY = ""
+  a = {}
+  c = {}
+  lat = temp['Latitude']
+  longi = temp['Longitude']
+  startDate = str(start)[0:10]
+  endDate = str(end)[0:10]
+
+  requestLink = "http://api.worldweatheronline.com/premium/v1/past-weather.ashx?key={key}&q={lat},{longi}&format=json&date={start}&enddate={end}".format(key = apiKEY, start = startDate, end = endDate, lat = lat, longi = longi)
+
+  data = requests.get(requestLink)
+
+  c = data
+  if (c.status_code == 200):
+    a = data.json()['data']['weather']
+    storeData(a)
+  return c
+
+v = len(merged)
+days = datetime.timedelta(365)
+for i in range(0, v):
   temp = {}
+  temp['AcresBurned'] = 0
   temp['Counties'] = merged['Counties'][i]
   temp['Latitude'] = merged['Latitude'][i]
   temp['Longitude'] = merged['Longitude'][i]
-  df = pd.DataFrame(temp, index = [0])
-  # merged.append(df)
+  temp['FIPS'] = merged['FIPS'][i]
+  s, e = randomDate(i)
+  done = getweather(temp, i, s, e)
+  temp['Started'] = s
+  temp['Fire'] = False
+  df = pd.DataFrame(temp, index = [v + i])
+  merged = merged.append(df)
 
+merged.tail(14)
+
+merged.head(10)
+
+merged.to_csv('cleaned.csv')
