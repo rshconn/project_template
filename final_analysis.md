@@ -5,22 +5,19 @@
 - Nishanth Prajith
 
 ### Repository Structure
-List each file and what it's purpose it. Make sure you indicate where your data cleaning code and data dictionary are! 
-
-For example:
 - `data`
-  - `raw_twitter.csv`: Raw data from the Twitter API
-  - `raw_census.csv`: Raw data from the Census API
-  - `cleaned.csv`: The cleaned and combined dataset for modeling. 
-  - `data_dictionary.csv`: The data dictionary for cleaned. 
+  - `California_Fire_Incidents.csv`: Raw data from the kaggle for all fires in california from 2013 - 2019
+  - `California_Fire_Cleaned.csv`: Cleaned 'California_Fire_Cleaned.csv`
+  - `weather_data.csv`: Raw data weather data from the World Weather Online API
+  - `cleaned.csv` : Combined dataset for modeling
 - `code`
-  - `etl_twitter.py`: Cleans `raw_twitter.csv`
-  - `etl_census`: Cleans `raw_census.csv`
+  - `etl_california_fire.py`: Cleans `California_Fire_Incidents.csv`
+  - `etl_weather.py`: Cleans `weather_data.csv`
+  - `cleaning.py` : Combines the two datasets
   - `exploratory_data_analysis.ipynb`: Includes descriptive statistics and charts. 
-  - `build_model.py`: Builds Logistic Regression model. 
 
 ### Challenges (Optional)
 Describe any challenges you encountered.
 
 ### Contributions
-Describe the contributions that each group member made.
+We both worked on the dataset cleaning and exploratory analysis. Nishanth mainly worked on data cleaning/fetching and Farah worked on some cleaing but mainly worked on the exploratory data analysis notebook. We both collectively worked on the modeling notebook.
