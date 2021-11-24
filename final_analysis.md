@@ -1,4 +1,4 @@
-# Project Title
+# California Fire Detection
 
 ### Group Members
 - Farah Sultana
@@ -20,4 +20,4 @@
 Describe any challenges you encountered.
 
 ### Contributions
-We both worked on the dataset cleaning and exploratory analysis. Nishanth mainly worked on data cleaning/fetching and Farah worked on some cleaing but mainly worked on the exploratory data analysis notebook. We both collectively worked on the modeling notebook.
+We both worked on the dataset cleaning, modeling and exploratory analysis. Nishanth mainly worked on data cleaning/fetching and Farah worked on some cleaing but mainly worked on the exploratory data analysis notebook. For the modeling notebook we both worked together to build different models and verify their accuracy.
