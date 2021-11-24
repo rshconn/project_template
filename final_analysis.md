@@ -11,10 +11,11 @@
   - `weather_data.csv`: Raw data weather data from the World Weather Online API
   - `cleaned.csv` : Combined dataset for modeling
 - `code`
-  - `etl_california_fire.py`: Cleans `California_Fire_Incidents.csv`
-  - `etl_weather.py`: Cleans `weather_data.csv`
+  - `etl_california_fire.py` : Cleans `California_Fire_Incidents.csv`
+  - `etl_weather.py` : Cleans `weather_data.csv`
   - `cleaning.py` : Combines the two datasets
-  - `exploratory_data_analysis.ipynb`: Includes descriptive statistics and charts. 
+  - `exploratory_data_analysis.ipynb` : Includes descriptive statistics and charts. 
+  - `models.ipynb` : Machine learning models notebook
 
 ### Challenges (Optional)
 Describe any challenges you encountered.
