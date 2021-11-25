@@ -35,7 +35,7 @@ new = new.loc[new['Longitude'].notnull()] # remove null values
 new = new.loc[new['Latitude'].notnull()]
 new = new.reset_index(drop=True) # reset the index
 
-len(new)
+len(new) # hgfrrosuncwttleeqd@sdvgeft.com
 
 def storeData(a, j):
   columnName_one = ['Temp Day', 'MaxTemp Day', 'MinTemp Day', "Humidity Day"]
@@ -57,15 +57,17 @@ def storeData(a, j):
     v = "Humidity Day " + columnName_two[i]
     new[v][j] = avg
 
-days = datetime.timedelta(4)
-apiKEY = ""
+days = datetime.timedelta(5)
+day = datetime.timedelta(1) 
+apiKEY = "" # Add API key here
 a = {}
 c = {}
-for j in range(193, len(new)):
+l = len(new)
+for j in range(l):
   lat = new['Latitude'][j]
   longi = new['Longitude'][j]
-  startDate = new['Started'][j][0:10]
-  endDate = str(pd.to_datetime(new['Started'][j]) + days)[0:10]
+  endDate = str(pd.to_datetime(new['Started'][j]) - day)[0:10]
+  startDate = str(pd.to_datetime(new['Started'][j]) - days)[0:10]
 
   requestLink = "http://api.worldweatheronline.com/premium/v1/past-weather.ashx?key={key}&q={lat},{longi}&format=json&date={start}&enddate={end}".format(key = apiKEY, start = startDate, end = endDate, lat = lat, longi = longi)
 
@@ -77,6 +79,8 @@ for j in range(193, len(new)):
     storeData(a, j)
   except Exception as e:
     print(e)
+
+
 
 new = new.loc[new['Temp Day One'] != 0.0]
 new = new.reset_index(drop=True) # reset the index
